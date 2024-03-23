@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "./ThemeProvider";
+
 import "./globals.css";
 
 import Navbar from "./components/navbar";
 import Socialbar from "./components/socialbar";
-import Hero from "./ui/hero";
-import Providers from "./Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,15 +21,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Providers>
-        <body
-          className={`${inter.className} max-w-5xl mx-auto my-4 bg-light text-black  dark:bg-dark dark:text-white`}
+      <body
+        className={`${inter.className} max-w-5xl mx-auto my-4 bg-light text-black  dark:bg-dark dark:text-white`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
           <Navbar />
           {children}
           <Socialbar />
-        </body>
-      </Providers>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
