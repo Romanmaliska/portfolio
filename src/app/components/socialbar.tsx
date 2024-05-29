@@ -1,14 +1,21 @@
-import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 import ContactMe from "./contactMe";
 
 export default function Socialbar() {
+  const pathName = usePathname();
+
   return (
     <section className="flex flex-col gap-4 m-4 fixed bottom-10">
-      <Link href="/?dialog=true">
+      <Link href={`${pathName}?dialog=true`}>
         <FaEnvelope className="h-8 w-8" />
       </Link>
+      <ContactMe />
       <a
         href="https://github.com/Romanmaliska"
         target="_blank"
@@ -23,7 +30,6 @@ export default function Socialbar() {
       >
         <FaLinkedin className="h-8 w-8" />
       </a>
-      <ContactMe />
     </section>
   );
 }

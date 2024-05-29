@@ -1,23 +1,27 @@
+import Link from "next/link";
 import ThemeSwitcher from "./themeSwitcher";
 
 export default function Navbar() {
-  const links = ["Home", "Projects", "Contact"];
+  const links = ["Home", "About", "Contact"];
   const IconProps = {
     className: "w-5 h-5 cursor-pointer",
   };
+
+  const generateHref = (link: string) =>
+    link === "Home" ? "/" : `/${link.toLowerCase()}`;
 
   return (
     <nav className="flex items-center m-4">
       <ThemeSwitcher />
       <div className="flex gap-4 ml-auto">
         {links.map((link) => (
-          <a
-            key={link}
-            href={`#${link.toLowerCase()}`}
+          <Link
             className="text-lg font-semibold"
+            key={link}
+            href={generateHref(link)}
           >
             {link}
-          </a>
+          </Link>
         ))}
       </div>
     </nav>

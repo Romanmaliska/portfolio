@@ -1,6 +1,4 @@
-"use client";
-
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import emailjs from "@emailjs/browser";
@@ -9,7 +7,7 @@ import { MdSend, MdCancelScheduleSend } from "react-icons/md";
 export default function ContactMe() {
   const hasDialog = useSearchParams().has("dialog");
   const router = useRouter();
-
+  const pathName = usePathname();
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const serviceId = "service_5viof7z";
@@ -45,7 +43,7 @@ export default function ContactMe() {
 
   const closeDialog = () => {
     dialogRef.current?.close();
-    router.push("/");
+    router.push(`${pathName}`);
   };
 
   return (
