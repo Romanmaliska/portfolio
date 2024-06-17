@@ -1,8 +1,9 @@
 import Link from "next/link";
 import ThemeSwitcher from "./themeSwitcher";
 
+const links = ["Home", "Contact"];
+
 export default function Navbar() {
-  const links = ["Home", "About", "Contact"];
   const IconProps = {
     className: "w-5 h-5 cursor-pointer",
   };

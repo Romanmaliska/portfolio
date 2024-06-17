@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 import ContactMe from "./contactMe";
+import { Suspense } from "react";
 
 export default function Socialbar() {
   const pathName = usePathname();
@@ -15,7 +16,9 @@ export default function Socialbar() {
       <Link href={`${pathName}?dialog=true`}>
         <FaEnvelope className="h-8 w-8" />
       </Link>
-      <ContactMe />
+      <Suspense fallback={null}>
+        <ContactMe />
+      </Suspense>
       <a
         href="https://github.com/Romanmaliska"
         target="_blank"

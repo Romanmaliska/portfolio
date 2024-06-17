@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <Image
-      className="ml-auto"
+      className="absolute bottom-0 right-0"
       src={`/hero.png`}
       alt="Picture of the cat"
       width={320}
