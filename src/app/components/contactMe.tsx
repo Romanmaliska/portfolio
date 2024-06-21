@@ -1,8 +1,8 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { MdSend, MdOutlineCancel } from "react-icons/md";
 
 import emailjs from "@emailjs/browser";
-import { MdSend, MdCancelScheduleSend } from "react-icons/md";
 
 export default function ContactMe() {
   const hasDialog = useSearchParams().has("dialog");
@@ -50,8 +50,12 @@ export default function ContactMe() {
     hasDialog && (
       <dialog
         ref={dialogRef}
-        className="rounded-xl px-6 py-12 w-full sm:max-w-screen-sm border-2 dark:border-blue backdrop:bg-gray-5"
+        className="rounded-xl pt-3 px-6 w-full sm:max-w-screen-sm border-2 dark:border-blue backdrop:bg-gray-5"
       >
+        <MdOutlineCancel
+          onClick={closeDialog}
+          className="ml-auto m-2 h-6 w-6"
+        />
         <form className="flex flex-col gap-2 pb-8">
           <label htmlFor="email" className="px-2">
             Email
@@ -92,21 +96,14 @@ export default function ContactMe() {
             value={formData.message}
             onChange={handleChange}
           />
-        </form>
-        <section className="flex gap-4">
-          <button
-            onClick={closeDialog}
-            className="w-1/2 border-2 rounded-md dark:border-blue p-1 uppercase text-xs sm:text-lg"
-          >
-            Cancel <MdCancelScheduleSend className="inline" />
-          </button>
           <button
             onClick={sendEmail}
-            className="w-1/2 border-2 rounded-md dark:border-blue p-1 uppercase text-xs sm:text-lg "
+            className="inline-block align-middle w-1/2 border-2 rounded-md dark:border-blue p-1 uppercase text-xs sm:text-lg"
           >
-            Send <MdSend className="inline" />
+            Send{" "}
+            <MdSend className="inline-block align-middle text-xs sm:text-lg" />
           </button>
-        </section>
+        </form>
       </dialog>
     )
   );
