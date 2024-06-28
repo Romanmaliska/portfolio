@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { Suspense } from "react";
 import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 import ContactMe from "./contactMe";
-import { Suspense } from "react";
 
 export default function Socialbar() {
   const pathName = usePathname();
