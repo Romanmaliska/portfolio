@@ -52,7 +52,7 @@ export default function EmailForm() {
         placeholder="john@email.com"
         required
         minLength={4}
-        className="rounded-md p-2 mb-4 dark:bg-dark "
+        className="rounded-md p-2 mb-4 dark:bg-dark"
         value={formData.email}
         onChange={handleChange}
       />
@@ -65,7 +65,7 @@ export default function EmailForm() {
         placeholder="Subject"
         required
         minLength={2}
-        className="rounded-md p-2 mb-4 dark:bg-dark "
+        className="rounded-md p-2 mb-4 dark:bg-dark"
         value={formData.subject}
         onChange={handleChange}
       />
@@ -78,7 +78,7 @@ export default function EmailForm() {
         required
         minLength={10}
         rows={4}
-        className="rounded-md p-2 mb-4 resize-none dark:bg-dark "
+        className="rounded-md p-2 mb-4 resize-none dark:bg-dark"
         value={formData.message}
         onChange={handleChange}
       />

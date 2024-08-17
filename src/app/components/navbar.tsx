@@ -12,7 +12,7 @@ export default function Navbar() {
     link === "Home" ? "/" : `/${link.toLowerCase()}`;
 
   return (
-    <nav className="flex items-center m-4">
+    <nav className="flex items-center m-4 sm:m-6">
       <ThemeSwitcher />
       <div className="flex gap-4 ml-auto">
         {links.map((link) => (

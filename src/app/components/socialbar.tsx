@@ -11,9 +11,9 @@ export default function Socialbar() {
   const pathName = usePathname();
 
   return (
-    <section className="flex flex-col gap-4 m-4 fixed bottom-10">
+    <footer className="flex place-content-around m-4 gap-4 sm:flex-col sm:fixed sm:bottom-10 sm:m-6">
       <Link href={`${pathName}?dialog=true`}>
-        <FaEnvelope className="h-8 w-8" />
+        <FaEnvelope className="h-6 w-6 sm:h-8 sm:w-8" />
       </Link>
       <Suspense fallback={null}>
         <ContactMe />
@@ -23,15 +23,15 @@ export default function Socialbar() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FaGithub className="h-8 w-8" />
+        <FaGithub className="h-6 w-6 sm:h-8 sm:w-8" />
       </a>
       <a
         href="https://www.linkedin.com/in/rmaliska"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FaLinkedin className="h-8 w-8" />
+        <FaLinkedin className="h-6 w-6 sm:h-8 sm:w-8" />
       </a>
-    </section>
+    </footer>
   );
 }

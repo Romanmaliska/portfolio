@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} max-w-5xl mx-auto my-4 bg-light text-black  dark:bg-dark dark:text-white`}
+        className={`${inter.className} grid min-h-[100dvh] grid-rows-[auto_1fr_auto] max-w-5xl mx-auto bg-light text-black dark:bg-dark dark:text-white`}
       >
         <ThemeProvider
           attribute="class"
@@ -31,7 +31,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <main className="p-12 lg:p-24">{children}</main>
           <Socialbar />
         </ThemeProvider>
       </body>
