@@ -4,10 +4,6 @@ import ThemeSwitcher from "./themeSwitcher";
 const links = ["Home", "Contact"];
 
 export default function Navbar() {
-  const IconProps = {
-    className: "w-5 h-5 cursor-pointer",
-  };
-
   const generateHref = (link: string) =>
     link === "Home" ? "/" : `/${link.toLowerCase()}`;
 
@@ -17,7 +13,7 @@ export default function Navbar() {
       <div className="flex gap-4 ml-auto">
         {links.map((link) => (
           <Link
-            className="text-lg font-semibold"
+            className="relative text-lg font-semibold hover:text-blue before:transition-all before:duration-300 before:h-1 before:content-[''] before:absolute before:bg-blue before:w-0 before:bottom-0 hover:before:w-full"
             key={link}
             href={generateHref(link)}
           >

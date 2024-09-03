@@ -13,7 +13,7 @@ export default function Socialbar() {
   return (
     <footer className="flex place-content-around m-4 gap-4 sm:flex-col sm:fixed sm:bottom-10 sm:m-6">
       <Link href={`${pathName}?dialog=true`}>
-        <FaEnvelope className="h-6 w-6 sm:h-8 sm:w-8" />
+        <FaEnvelope className="h-6 w-6 sm:h-8 sm:w-8 hover:text-blue" />
       </Link>
       <Suspense fallback={null}>
         <ContactMe />
@@ -23,14 +23,14 @@ export default function Socialbar() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FaGithub className="h-6 w-6 sm:h-8 sm:w-8" />
+        <FaGithub className="h-6 w-6 sm:h-8 sm:w-8 hover:text-blue" />
       </a>
       <a
         href="https://www.linkedin.com/in/rmaliska"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FaLinkedin className="h-6 w-6 sm:h-8 sm:w-8" />
+        <FaLinkedin className="h-6 w-6 sm:h-8 sm:w-8 hover:text-blue" />
       </a>
     </footer>
   );
