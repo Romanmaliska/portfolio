@@ -1,10 +1,7 @@
-import { useState } from "react";
-import { MdSend } from "react-icons/md";
+import { useState } from 'react';
+import { MdSend } from 'react-icons/md';
 
-import { publicKey, serviceId, templatId } from "../constants";
-import emailjs from "@emailjs/browser";
-
-import { z } from "zod";
+import { z } from 'zod';
 
 const emailSchema = z.object({
   email: z.string().email(),
@@ -14,27 +11,34 @@ const emailSchema = z.object({
 
 type User = z.infer<typeof emailSchema>;
 
-export default function EmailForm() {
+type Props = {
+  closeDialog: () => void;
+};
+
+export default function EmailForm({ closeDialog }: Props) {
   const [formData, setFormData] = useState<User>({
-    email: "",
-    subject: "",
-    message: "",
+    email: '',
+    subject: '',
+    message: '',
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const sendEmail = async (e: Event) => {
+  const sendEmail = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    closeDialog();
+    setFormData({ email: '', subject: '', message: '' });
+
     try {
       emailSchema.safeParse(formData);
 
-      await emailjs.send(serviceId, templatId, formData, {
-        publicKey: publicKey,
-        limitRate: { throttle: 1000 },
+      await fetch('/api/resend', {
+        method: 'POST',
+        body: JSON.stringify(formData),
       });
     } catch {
       // no op
@@ -83,7 +87,7 @@ export default function EmailForm() {
         onChange={handleChange}
       />
       <button
-        onClick={(e) => sendEmail}
+        onClick={sendEmail}
         className="flex justify-center items-center m-auto gap-4 w-1/3 border-2 rounded-md dark:border-blue p-1 uppercase text-xs sm:text-lg cursor-pointer dark:hover:text-blue hover:text-blue"
       >
         <span>Send</span>

@@ -3,7 +3,8 @@
  */
 
 const nextConfig = {
-  output: "standalone",
+  // use for docker
+  output: 'standalone',
 };
 
 export default nextConfig;
