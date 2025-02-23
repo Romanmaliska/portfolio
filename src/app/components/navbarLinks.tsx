@@ -20,7 +20,7 @@ export default function NavbarLinks() {
         );
       })}
       <a
-        href="https://todo.maliskaroman.lol"
+        href="https://todo.romanmaliska.dev"
         className={`relative text-lg font-semibold hover:text-blue before:transition-all before:duration-300 before:h-1 before:content-[''] before:absolute before:bg-blue before:w-0 before:bottom-0 hover:before:w-full`}
       >
         Another To Do App

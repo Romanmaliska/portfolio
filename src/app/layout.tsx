@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from './ThemeProvider';
 
 import './globals.css';
@@ -34,6 +35,7 @@ export default function RootLayout({
           <main className="p-12 lg:p-24">{children}</main>
           <Socialbar />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
