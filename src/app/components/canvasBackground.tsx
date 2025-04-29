@@ -8,6 +8,9 @@ export default function CanvasBackground() {
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 -z-50">
       <Canvas>
+
+
+        ``
         <Stars
           radius={50}
           depth={50}
