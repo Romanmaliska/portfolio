@@ -32,7 +32,7 @@ export default function NavbarLinks() {
         className={`relative text-lg font-semibold hover:text-blue before:transition-all before:duration-300 before:h-1 before:content-[''] before:absolute before:bg-blue before:w-0 before:bottom-0 hover:before:w-full`}
         target="blank"
       >
-        Another To Do App
+        To Do App
       </a>
     </>
   );

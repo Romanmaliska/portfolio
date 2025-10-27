@@ -29,7 +29,7 @@ export default function Socialbar({ isOnContactPage }: Props) {
     >
       <ViewTransition name="socialbar">
         {isOnContactPage && (
-          <h1 className="text-4xl font-bold m-12">Get in Touch</h1>
+          <h1 className="text-xl md:text-4xl font-bold m-8 md:m-12">Get in Touch</h1>
         )}
         <div
           className={
