@@ -38,7 +38,7 @@ export default function EmailForm({ dialogRef }: Props) {
     if (!result.success) {
       const { fieldErrors, formErrors } = result.error.flatten();
 
-      let currentFieldErrors: Partial<Record<keyof User, string[]>> = {
+      const currentFieldErrors: Partial<Record<keyof User, string[]>> = {
         ...error?.fieldErrors,
       };
 
