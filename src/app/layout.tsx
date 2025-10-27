@@ -1,18 +1,15 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from "@vercel/analytics/react"
-import { ThemeProvider } from './ThemeProvider';
 
-import './globals.css';
-
-import Navbar from './components/navbar';
-import Socialbar from './components/socialbar';
+import { ThemeProvider } from '@/app/ThemeProvider';
+import '@/app/globals.css';
+import Navbar from '@/app/components/navbar';
+import ConditionalSocialbar from '@/app/components/conditionalSocialbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Roman Maliska',
   description: 'Personal web page',
 };
 
@@ -34,10 +31,8 @@ export default function RootLayout({
         >
           <Navbar />
           <main className="p-12 lg:p-24">{children}</main>
-          <Socialbar />
+          <ConditionalSocialbar />
         </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

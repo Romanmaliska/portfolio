@@ -1,6 +1,6 @@
 import { IoMdCloudDownload } from 'react-icons/io';
 
-import { getBooks } from './actions';
+import { getBooks } from '@/app/(kobo)/downloader/queries';
 
 type BookFiles = {
   files: [

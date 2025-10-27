@@ -1,6 +1,11 @@
-export default function page() {
+'use client';
+
+import Socialbar from '@/app/components/socialbar';
+
+export default function ContactPage() {
   return (
-    <main>
-    </main>
+    <div>
+      <Socialbar isOnContactPage />
+    </div>
   );
 }

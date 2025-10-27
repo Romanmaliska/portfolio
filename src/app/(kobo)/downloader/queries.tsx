@@ -1,5 +1,3 @@
-'use server';
-
 const baseUrl = 'https://www.googleapis.com/drive/v3/files';
 
 export const getBooks = async () => {

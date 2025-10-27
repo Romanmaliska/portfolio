@@ -1,5 +1,5 @@
-import ThemeSwitcher from "./themeSwitcher";
-import NavbarLinks from "./navbarLinks";
+import ThemeSwitcher from "@/app/components/themeSwitcher";
+import NavbarLinks from "@/app/components/navbarLinks";
 
 export default function Navbar() {
   return (

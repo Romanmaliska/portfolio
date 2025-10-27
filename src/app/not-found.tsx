@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 
-import Hero from "./components/ui/hero";
+import Hero from "@/app/components/ui/hero";
 
 export default function NotFound() {
   return (

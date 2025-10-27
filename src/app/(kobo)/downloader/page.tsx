@@ -1,5 +1,5 @@
 import { GiBookshelf } from 'react-icons/gi';
-import BooksList from './BookList';
+import BooksList from '@/app/(kobo)/downloader/BookList';
 
 export default function Home() {
   return (
