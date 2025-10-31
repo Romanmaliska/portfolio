@@ -1,0 +1,28 @@
+{
+  "Homepage": {
+    "greeting": "Hi, my name is",
+    "name": "roman maliska",
+    "intro": "Hello, world! I'm a front-end developer who speaks JavaScript as fluently as my native language. I craft interactive web experiences with the power of React, turning complex problems into beautiful, simple code.",
+    "nature": "When I'm not in front of a screen, you'll find me in the great outdoors, savoring a cup of coffee and admiring the beauty of nature.",
+    "welcome": "So whether you're here for some React wizardry or just to share a virtual cup of coffee, I'm glad you stopped by. Welcome to my corner of the internet!"
+  },
+  "ContactPage": {
+    "title": "Get in Touch",
+    "emailLabel": "Email",
+    "emailPlaceholder": "john@email.com",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Subject",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Your message...",
+    "sendButton": "Send",
+    "invalidEmail": "Invalid email address",
+    "subjectTooShort": "Subject must be at least 2 characters",
+    "messageTooShort": "Message must be at least 10 characters"
+  },
+  "Navigation": {
+    "home": "Home",
+    "contact": "Contact",
+    "todoApp": "To Do App"
+  }
+}
+

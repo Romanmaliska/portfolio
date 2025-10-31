@@ -25,6 +25,46 @@
   }
 }
 
+/* Minimal macOS Liquid Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.float-animate {
+  animation: float 8s ease-in-out infinite;
+}
+
+.blob-animate {
+  animation: blob 20s ease-in-out infinite;
+}
+
+.shimmer {
+  animation: shimmer 4s ease-in-out infinite;
+}
+
 /* Bouncy ViewTransition animation for dialog */
 @keyframes bouncy-scale {
   0% {

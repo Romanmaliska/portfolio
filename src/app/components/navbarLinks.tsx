@@ -2,37 +2,41 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
-const links = ['Home', 'Contact'];
+const links = ['home', 'contact'] as const;
 
 export default function NavbarLinks() {
   const pathName = usePathname();
   const path = pathName === '/' ? 'home' : pathName.substring(1);
+  const t = useTranslations('Navigation');
 
   const generateHref = (link: string) =>
-    link === 'Home' ? '/' : `/${link.toLowerCase()}`;
+    link === 'home' ? '/' : `/${link.toLowerCase()}`;
 
   return (
     <>
       {links.map((link) => {
         return (
           <Link
-            className={`relative text-lg font-semibold ${
-              path === link.toLowerCase() ? 'text-blue' : 'text-white'
-            } `}
+            className={`text-base font-medium transition-colors ${
+              path === link.toLowerCase() 
+                ? 'text-purple-600 dark:text-purple-400' 
+                : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+            }`}
             key={link}
             href={generateHref(link)}
           >
-            {link}
+            {t(link)}
           </Link>
         );
       })}
       <a
         href="https://todo.romanmaliska.dev"
-        className={`relative text-lg font-semibold hover:text-blue before:transition-all before:duration-300 before:h-1 before:content-[''] before:absolute before:bg-blue before:w-0 before:bottom-0 hover:before:w-full`}
+        className="text-base font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
         target="blank"
       >
-        To Do App
+        {t('todoApp')}
       </a>
     </>
   );

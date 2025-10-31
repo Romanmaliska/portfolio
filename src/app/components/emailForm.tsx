@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MdOutlineCancel, MdSend, MdError } from 'react-icons/md';
+import { useTranslations } from 'next-intl';
 
 import { z } from 'zod';
 
@@ -16,6 +17,7 @@ type Props = {
 };
 
 export default function EmailForm({ dialogRef }: Props) {
+  const t = useTranslations('ContactPage');
   const [error, setError] = useState<z.typeToFlattenedError<User> | null>(null);
   const [formData, setFormData] = useState<User>({
     email: '',
@@ -71,8 +73,10 @@ export default function EmailForm({ dialogRef }: Props) {
     }
   };
 
-  const sendEmail = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const sendEmail = async (
+    e?: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>,
+  ) => {
+    e?.preventDefault();
 
     try {
       const result = emailSchema.safeParse(formData);
@@ -96,88 +100,115 @@ export default function EmailForm({ dialogRef }: Props) {
     <dialog
       ref={dialogRef}
       style={{ viewTransitionName: 'email-dialog' }}
-      className="rounded-xl pt-3 px-6 w-full sm:max-w-screen-sm border-2 dark:border-blue backdrop:bg-gray-5"
+      className="rounded-2xl p-8 w-full sm:max-w-screen-sm bg-white/95 dark:bg-slate-800/90 backdrop-blur-2xl border border-slate-200/50 dark:border-white/20 shadow-2xl backdrop:bg-slate-900/50 backdrop:backdrop-blur-sm"
     >
-      <MdOutlineCancel
-        className="ml-auto m-2 h-6 w-6 cursor-pointer dark:hover:text-blue hover:text-blue"
-        onClick={handleCloseDialog}
-      />
-      <form className="flex flex-col gap-4 pb-8">
-        <div className="flex flex-col gap-4 pb-8">
-          <label htmlFor="email" className="px-2">
-            Email
-          </label>
+      <div className="flex justify-end">
+        <button
+          type="button"
+          onClick={handleCloseDialog}
+          className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-800"
+        >
+          <MdOutlineCancel className="h-5 w-5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors" />
+        </button>
+      </div>
+
+      <form
+        className="flex flex-col gap-6"
+        onSubmit={(e) => {
+          e.preventDefault();
+          sendEmail(e as any);
+        }}
+      >
+        <div className="flex flex-col gap-6">
           <div className="relative">
+            <label
+              htmlFor="email"
+              className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300"
+            >
+              {t('emailLabel')}
+            </label>
             <input
               id="email"
               type="email"
-              placeholder="john@email.com"
+              placeholder={t('emailPlaceholder')}
               required
               minLength={4}
-              className="rounded-md p-2 w-full dark:bg-dark"
+              className="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-300"
               value={formData.email}
+              autoFocus
               onChange={handleChange}
               onBlur={handleBlur}
             />
             {error?.fieldErrors.email && (
-              <p className="flex gap-2 items-center text-sm right-0 absolute text-red-500">
+              <p className="flex gap-2 items-center absolute right-0 text-sm mt-2 text-red-500 dark:text-red-400">
                 <MdError />
                 {error.fieldErrors.email[0]}
               </p>
             )}
           </div>
-          <label htmlFor="subject" className="px-2">
-            Subject
-          </label>
+
           <div className="relative">
+            <label
+              htmlFor="subject"
+              className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300"
+            >
+              {t('subjectLabel')}
+            </label>
             <input
               id="subject"
               type="text"
-              placeholder="Subject"
+              placeholder={t('subjectPlaceholder')}
               required
               minLength={2}
-              className="rounded-md p-2 w-full dark:bg-dark"
+              className="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-300"
               value={formData.subject}
               onChange={handleChange}
               onBlur={handleBlur}
             />
             {error?.fieldErrors.subject && (
-              <p className="flex gap-2 items-center text-sm right-0 absolute text-red-500">
+              <p className="flex gap-2 items-center absolute right-0 text-sm mt-2 text-red-500 dark:text-red-400">
                 <MdError />
                 {error.fieldErrors.subject[0]}
               </p>
             )}
           </div>
-          <label htmlFor="message" className="px-2">
-            Message
-          </label>
-          <div className="relative">
+
+          <div className="relative pb-6">
+            <label
+              htmlFor="message"
+              className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300"
+            >
+              {t('messageLabel')}
+            </label>
             <textarea
               id="message"
-              placeholder="Your message..."
+              placeholder={t('messagePlaceholder')}
               required
               minLength={10}
               rows={4}
-              className="rounded-md p-2 resize-none w-full dark:bg-dark"
+              className="w-full px-4 py-3 rounded-xl bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-500 resize-none focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-300"
               value={formData.message}
               onChange={handleChange}
               onBlur={handleBlur}
             />
             {error?.fieldErrors.message && (
-              <p className="flex gap-2 items-center text-sm right-0 absolute text-red-500">
+              <p className="flex gap-2 items-center absolute right-0 text-sm mt-2 text-red-500 dark:text-red-400">
                 <MdError />
                 {error.fieldErrors.message[0]}
               </p>
             )}
           </div>
         </div>
+
         <button
-          onClick={sendEmail}
-          disabled={!!error}
-          className="flex justify-center items-center m-auto gap-4 w-1/3 border-2 rounded-md dark:border-blue p-1 uppercase text-xs sm:text-lg cursor-pointer dark:hover:text-blue hover:text-blue"
+          type="submit"
+          disabled={!!error && Object.keys(error.fieldErrors || {}).length > 0}
+          className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-800"
         >
-          <span>Send</span>
-          <MdSend />
+          <span className="flex items-center justify-center gap-2">
+            {t('sendButton')}
+            <MdSend />
+          </span>
         </button>
       </form>
     </dialog>

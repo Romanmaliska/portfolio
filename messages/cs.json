@@ -1,0 +1,28 @@
+{
+  "Homepage": {
+    "greeting": "Ahoj, jmenuji se",
+    "name": "roman mališka",
+    "intro": "Ahoj, světe! Jsem front-end vývojář, který mluví JavaScriptem stejně plynule jako svým rodným jazykem. Vytvářím interaktivní webové zážitky s pomocí Reactu a proměňuji složité problémy v krásný, jednoduchý kód.",
+    "nature": "Když nejsem u obrazovky, najdete mě venku v přírodě, kde si pochutnávám na šálku kávy a obdivuji krásy přírody.",
+    "welcome": "Takže ať už jste tu pro trochu React kouzlení, nebo jen abyste si dali virtuální šálek kávy, jsem rád, že jste se zastavili. Vítejte v mém koutku internetu!"
+  },
+  "ContactPage": {
+    "title": "Kontaktujte mě",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "jan@email.cz",
+    "subjectLabel": "Předmět",
+    "subjectPlaceholder": "Předmět",
+    "messageLabel": "Zpráva",
+    "messagePlaceholder": "Vaše zpráva...",
+    "sendButton": "Odeslat",
+    "invalidEmail": "Neplatná e-mailová adresa",
+    "subjectTooShort": "Předmět musí mít alespoň 2 znaky",
+    "messageTooShort": "Zpráva musí mít alespoň 10 znaků"
+  },
+  "Navigation": {
+    "home": "Domů",
+    "contact": "Kontakt",
+    "todoApp": "To Do App"
+  }
+}
+

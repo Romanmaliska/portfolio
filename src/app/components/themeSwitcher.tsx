@@ -16,7 +16,11 @@ export default function ThemeSwitcher() {
     return null;
   }
 
-  const IconProps = { className: "cursor-pointer hover:text-blue", width: 36, height: 36 };
+  const IconProps = { 
+    className: "cursor-pointer text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors", 
+    width: 20, 
+    height: 20 
+  };
 
   return resolvedTheme === "dark" ? (
     <FaRegSun {...IconProps} onClick={() => setTheme("light")} />

@@ -1,27 +1,35 @@
+import { useTranslations } from 'next-intl';
+
 export default function About() {
+  const t = useTranslations('Homepage');
+
   return (
-    <>
-      <p className="leading-tight sm:leading-normal pb-2 sm:pb-4 text-2xl sm:text-4xl text-blue font-medium">
-        Hi, my name is
-      </p>
-      <h1 className="leading-tight sm:leading-normal pb-4 sm:pb-8 text-4xl sm:text-7xl text-black dark:text-white font-semibold capitalize">
-        roman maliska
-      </h1>
-      <p className="pb-4 sm:pb-6 leading-normal text-lg text-black dark:text-white font-medium">
-        Hello, world! I&apos;m a front-end developer who speaks JavaScript as
-        fluently as my native language. I craft interactive web experiences with
-        the power of React, turning complex problems into beautiful, simple
-        code.
-      </p>
-      <p className="pb-4 sm:pb-6 leading-normal text-lg text-black dark:text-white font-medium">
-        When I&apos;m not in front of a screen, you&apos;ll find me in the great
-        outdoors, savoring a cup of coffee and admiring the beauty of nature.
-      </p>
-      <p className="pb-4 sm:pb-6 leading-normal text-lg text-black dark:text-white font-medium">
-        So whether you&apos;re here for some React wizardry or just to share a
-        virtual cup of coffee, I&apos;m glad you stopped by. Welcome to my
-        corner of the internet!
-      </p>
-    </>
+    <div className="space-y-8 sm:space-y-12">
+      {/* Hero Section */}
+      <div className="float-animate">
+        <p className="text-xl sm:text-2xl text-purple-600 dark:text-purple-400 font-medium mb-4">
+          {t('greeting')}
+        </p>
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl text-slate-900 dark:text-white font-bold mb-8 capitalize tracking-tight">
+          {t('name')}
+        </h1>
+      </div>
+
+      <div>
+        <div className="flex flex-col gap-6 rounded-2xl bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 p-6 sm:p-8 shadow-lg transition-all duration-300 hover:bg-white/90 dark:hover:bg-white/10 hover:border-slate-300/50 dark:hover:border-white/20">
+          <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
+            {t('intro')}
+          </p>
+
+          <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
+            {t('nature')}
+          </p>
+
+          <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
+            {t('welcome')}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
