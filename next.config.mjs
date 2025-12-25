@@ -5,6 +5,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig = {
   // use for docker
   output: 'standalone',
+  reactCompiler: true,
   experimental: {
     viewTransition: true,
   },
