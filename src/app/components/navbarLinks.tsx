@@ -20,8 +20,8 @@ export default function NavbarLinks() {
         return (
           <Link
             className={`text-base font-medium transition-colors ${
-              path === link.toLowerCase() 
-                ? 'text-purple-600 dark:text-purple-400' 
+              path === link.toLowerCase()
+                ? 'text-purple-600 dark:text-purple-400'
                 : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
             key={link}
@@ -31,13 +31,13 @@ export default function NavbarLinks() {
           </Link>
         );
       })}
-      <a
+      {/* <a
         href="https://todo.romanmaliska.dev"
         className="text-base font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
         target="blank"
       >
         {t('todoApp')}
-      </a>
+      </a> */}
     </>
   );
 }
